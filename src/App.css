@@ -1,38 +1,115 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial,sans-serif;
+  background-color: #f3f4f6;
+  color:#333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.App{
+  max-width: 600px;
+  width:100%;
+  padding:20px;
+  background-color: #ffffff;
+  border-radius:8px ;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+h1{
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 1.5rem;
+}
+.expense-form,
+.expense-list,
+.expense-summary{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius:8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.expense-form input,
+.expense-form select,
+.expense-form button{
+  width: calc(100%-20px);
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius: 6px;
+  font-size:1rem;
+}
+.expense-form button{
+  background-color: #4a90e2;
+  color:white;
+  border:none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.expense-form button:hover{
+  background-color:#357abd;
+}
+.expense-list ul{
+  list-style-type:none;
+}
+.expense-list li{
+  display:flex;
+  justify-content: space-between;
+  padding:10px;
+  border-bottom: 1px solid #eee;
+}
+.expense-list button{
+  background-color: #ff4d4d;
+  color:white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.expense-list button:hover{
+  background-color: #e04343;
+}
+.expense-summary{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.expense-summary h2{
+  color:#4a90e2;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.expense-summary p{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.expense-summary ul{
+  list-style-type: none;
+  padding: 10px;
+}
+.expense-summary li{
+  padding:5px 0;
+  font-size: 1rem;
+  color:#666;
+}
+@media screen and(max-width:600px){
+  .App{
+    padding:15px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .expense-form input,
+  .expense-form select,
+  .expense-form button{
+    width:100%;
   }
-  to {
-    transform: rotate(360deg);
+  h1{
+    font-size: 1.5rem;
   }
-}
+  .expense-summary p{
+    font-size: 1.1rem;
+  }
+} 
+  
