@@ -1,115 +1,208 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-  font-family: Arial,sans-serif;
-  background-color: #f3f4f6;
-  color:#333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-.App{
+/* General App Styling */
+.App {
+  font-family: Arial, sans-serif;
   max-width: 600px;
-  width:100%;
-  padding:20px;
-  background-color: #ffffff;
-  border-radius:8px ;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-h1{
-  text-align: center;
-  color: #4a90e2;
-  margin-bottom: 1.5rem;
-}
-.expense-form,
-.expense-list,
-.expense-summary{
-  margin: 20px 0;
+  margin: 0 auto;
   padding: 20px;
-  border-radius:8px;
-  background-color: #fafafa;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.expense-form input,
-.expense-form select,
-.expense-form button{
-  width: calc(100%-20px);
-  padding:10px;
-  margin:10px 0;
-  border:1px solid #ddd;
-  border-radius: 6px;
-  font-size:1rem;
-}
-.expense-form button{
-  background-color: #4a90e2;
-  color:white;
-  border:none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-.expense-form button:hover{
-  background-color:#357abd;
-}
-.expense-list ul{
-  list-style-type:none;
-}
-.expense-list li{
-  display:flex;
-  justify-content: space-between;
-  padding:10px;
-  border-bottom: 1px solid #eee;
-}
-.expense-list button{
-  background-color: #ff4d4d;
-  color:white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.expense-list button:hover{
-  background-color: #e04343;
-}
-.expense-summary{
   text-align: center;
+  background-color: #f4f7f6;
 }
-.expense-summary h2{
-  color:#4a90e2;
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
-.expense-summary p{
-  font-size: 1.25rem;
-  font-weight: bold;
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
 }
-.expense-summary ul{
-  list-style-type: none;
-  padding: 10px;
+
+/* Form Styling */
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.expense-summary li{
-  padding:5px 0;
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ddd;
   font-size: 1rem;
-  color:#666;
 }
-@media screen and(max-width:600px){
-  .App{
-    padding:15px;
+
+input:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Expense and Income List Styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #d32f2f;
+}
+
+li .edit-btn {
+  background-color: #4CAF50;
+}
+
+li .edit-btn:hover {
+  background-color: #45a049;
+}
+
+/* Summary Section Styling */
+.summary {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+  color: #333;
+}
+
+.summary .balance {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.summary .positive {
+  color: #388e3c;
+}
+
+.summary .negative {
+  color: #d32f2f;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
   }
-  .expense-form input,
-  .expense-form select,
-  .expense-form button{
-    width:100%;
+
+  h1 {
+    font-size: 2rem;
   }
-  h1{
-    font-size: 1.5rem;
+
+  form {
+    padding: 15px;
   }
-  .expense-summary p{
-    font-size: 1.1rem;
+
+  input,
+  select,
+  button {
+    font-size: 0.9rem;
   }
-} 
-  
+
+  button {
+    padding: 10px;
+  }
+
+  .summary {
+    padding: 15px;
+  }
+}
+/* Budget Exceeded Notification with Special Effects */
+.notification {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d32f2f;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  animation: shake 0.5s ease-in-out, fadeIn 1s ease;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-60%) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-40%) rotate(5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Optional Style for Other Notifications */
+.notification {
+  animation: fadeIn 2s ease;
+}

@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-function ExpenseForm({ addExpense, updateExpense, categories, editingExpense }) {
+function IncomeForm({ addIncome, updateIncome, categories, editingIncome }) {
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    if (editingExpense) {
-      setAmount(editingExpense.amount);
-      setCategory(editingExpense.category);
-      setDescription(editingExpense.description);
+    if (editingIncome) {
+      setAmount(editingIncome.amount);
+      setCategory(editingIncome.category);
+      setDescription(editingIncome.description);
     }
-  }, [editingExpense]);
+  }, [editingIncome]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (amount && category && description) {
-      const expense = { id: Date.now(), amount, category, description };
-      editingExpense ? updateExpense(expense) : addExpense(expense);
+      const income = { id: Date.now(), amount, category, description };
+      editingIncome ? updateIncome(income) : addIncome(income);
       setAmount('');
       setCategory('');
       setDescription('');
@@ -26,7 +26,7 @@ function ExpenseForm({ addExpense, updateExpense, categories, editingExpense }) 
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>{editingExpense ? 'Edit Expense' : 'Add Expense'}</h2>
+      <h2>{editingIncome ? 'Edit Income' : 'Add Income'}</h2>
       <input
         type="number"
         placeholder="Amount"
@@ -47,9 +47,9 @@ function ExpenseForm({ addExpense, updateExpense, categories, editingExpense }) 
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button type="submit">{editingExpense ? 'Update Expense' : 'Add Expense'}</button>
+      <button type="submit">{editingIncome ? 'Update Income' : 'Add Income'}</button>
     </form>
   );
 }
 
-export default ExpenseForm;
+export default IncomeForm;
